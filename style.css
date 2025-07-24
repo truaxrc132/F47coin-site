@@ -1,0 +1,30 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #111;
+  color: #f1f1f1;
+}
+header {
+  background: #f04747;
+  padding: 2em;
+  text-align: center;
+}
+.buy-button {
+  background: #fff;
+  color: #f04747;
+  padding: 1em 2em;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.chart, .tokenomics {
+  padding: 2em;
+  text-align: center;
+}
+footer {
+  background: #222;
+  padding: 1em;
+  text-align: center;
+}
