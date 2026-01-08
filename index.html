@@ -1,35 +1,200 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F47 Coin</title>
-    <link href="dist/output.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>F47 Coin</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #000;
+      color: #fff;
+    }
+
+    /* === BACKGROUND SLIDESHOW === */
+    .slideshow {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: fade 30s infinite;
+    }
+
+    .slide:nth-child(1) { animation-delay: 0s; }
+    .slide:nth-child(2) { animation-delay: 10s; }
+    .slide:nth-child(3) { animation-delay: 20s; }
+
+    @keyframes fade {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      30% { opacity: 1; }
+      40% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: -1;
+    }
+
+    /* === HERO === */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      color: #e11d48;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 700px;
+      font-size: 1.25rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+
+    .buttons a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .buy {
+      background: #e11d48;
+      color: #fff;
+    }
+
+    .chart-btn {
+      border: 1px solid #fff;
+      color: #fff;
+    }
+
+    /* === SECTIONS === */
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: rgba(20,20,20,0.9);
+      border: 1px solid #333;
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 2rem;
+    }
+
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      opacity: 0.6;
+      padding: 2rem;
+    }
+  </style>
 </head>
-<body class="bg-black text-white font-sans">
 
-    <section class="h-screen flex flex-col justify-center items-center text-center px-4">
-        <h1 class="text-red-600 text-6xl md:text-8xl font-extrabold mb-6">F47K MAGA</h1>
-        <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mb-4">F47 Coin is the rage-fueled memecoin born to disrupt the red-hat machine.</p>
-        <p class="text-md md:text-lg text-gray-400 max-w-xl">Built on BSC. LP Locked. 5% Transaction Tax — 4% to a verified charity wallet, 1% to the dev wallet.</p>
-    </section>
+<body>
 
-    <section class="bg-gray-900 py-16 px-4 text-center">
-        <h2 class="text-4xl font-bold mb-4 text-white">Tokenomics</h2>
-        <ul class="text-lg text-gray-300 space-y-2 max-w-xl mx-auto">
-            <li>✔️ Total Supply: 1,000,000 F47</li>
-            <li>✔️ 5% Tax per transaction</li>
-            <li>✔️ 4% to Charity Wallet</li>
-            <li>✔️ 1% to Dev Wallet</li>
-            <li>✔️ LP is locked</li>
-        </ul>
-    </section>
+  <!-- Background -->
+  <div class="slideshow">
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1548092372-0d1bd40894a3')"></div>
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1520975916090-3105956dac38')"></div>
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf')"></div>
+  </div>
+  <div class="overlay"></div>
 
-    <footer class="bg-black py-8 text-center text-gray-500 text-sm">
-        <p>F47 Coin | Built for the people, not the orange.</p>
-        <p><a href="https://www.f47coin.com" class="text-red-500 hover:underline">www.f47coin.com</a></p>
-    </footer>
+  <!-- Hero -->
+  <div class="hero">
+    <h1>F47 Coin</h1>
+    <p>
+      A memecoin built as a statement — with real on‑chain mechanics,
+      locked liquidity, and a clear charitable structure.
+    </p>
+    <div class="buttons">
+      <a class="buy" href="https://pancakeswap.finance" target="_blank">Buy on PancakeSwap</a>
+      <a class="chart-btn" href="#chart">View Chart</a>
+    </div>
+  </div>
+
+  <!-- Tokenomics -->
+  <section>
+    <div class="card grid">
+      <div>
+        <h2>Tokenomics</h2>
+        <p>5% transaction tax</p>
+        <p>4% Charity · 1% Dev</p>
+        <p>LP Locked · BSC</p>
+      </div>
+      <div>
+        <p>This structure funds real‑world causes while maintaining
+        transparency and on‑chain accountability.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chart -->
+  <section id="chart">
+    <h2>Live Chart</h2>
+    <iframe src="https://dexscreener.com/bsc/YOUR_PAIR_ADDRESS"></iframe>
+  </section>
+
+  <!-- Mission -->
+  <section>
+    <h2>Mission</h2>
+    <p>
+      F47 exists as a decentralized expression of dissent, using blockchain
+      mechanics to convert attention into measurable impact.
+    </p>
+  </section>
+
+  <!-- Roadmap -->
+  <section>
+    <h2>Roadmap</h2>
+    <div class="grid">
+      <div class="card">Launch & Liquidity</div>
+      <div class="card">Listings & Visibility</div>
+      <div class="card">Charity Disbursements</div>
+    </div>
+  </section>
+
+  <footer>
+    © F47 Coin · f47coin.com
+  </footer>
 
 </body>
 </html>
